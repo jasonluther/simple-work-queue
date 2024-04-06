@@ -1,13 +1,15 @@
 '''
 Simple test to get test infrastructure up and running. Just import the module.
 '''
-import pytest
+import unittest
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-import src
-import src.simple_work_queue
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+import simple_work_queue
 
-def test_import():
-    assert src.simple_work_queue is not None
+class TestImport(unittest.TestCase):
+    def test_module_in_modules_list(self):
+        modules_list = sys.modules.keys()
+        self.assertIn('simple_work_queue', modules_list)
+    
