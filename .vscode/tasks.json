@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run GitHub Actions locally",
+            "type": "shell",
+            "command": "act",
+            "args": [
+                "--verbose",
+                "-P", "ubuntu-latest=catthehacker/ubuntu:act-latest",
+                "--container-architecture", "linux/amd64",
+                "--reuse"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}

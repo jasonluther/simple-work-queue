@@ -17,6 +17,7 @@ poetry init
 To do:
 
   * add [classifiers](https://python-poetry.org/docs/pyproject/#classifiers). 
+  * set up branch protection in github
 
 ### Unit tests
 
@@ -44,6 +45,15 @@ This is the most confusing aspect of structuring a python project to me. I still
 
 I'm checking in my .vscode files to keep track of what needs to be done to configure it to my liking. 
 
-To do:
+#### act
 
-  * Get pylance to work with the virtual environment created by poetry
+I will use GitHub actions, so I also wat to set up a way to test those actions locally using `act`:
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install act
+brew install --cask docker
+open -a /Applications/Docker.app
+```
+
+This isn't going well so far, but I did get it work through rosetta. See <https://github.com/actions/setup-python/issues/108#issuecomment-1295996059> for details. The key part of the solution is to specify `--container-architecture linux/amd64` when running `act`, as well as including `architecture: x64` in the workflow's `actions/setup-python@v3` setup. 
+
