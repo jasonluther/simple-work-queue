@@ -55,5 +55,5 @@ brew install --cask docker
 open -a /Applications/Docker.app
 ```
 
-This isn't going well so far, but I did get it work through rosetta. See <https://github.com/actions/setup-python/issues/108#issuecomment-1295996059> for details. The key part of the solution is to specify `--container-architecture linux/amd64` when running `act`, as well as including `architecture: x64` in the workflow's `actions/setup-python@v3` setup. 
+This isn't going well so far, but I did get it work through rosetta. See <https://github.com/actions/setup-python/issues/108#issuecomment-1295996059> for details. The key part of the solution is to specify `--container-architecture linux/amd64` when running `act`. 
 
