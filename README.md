@@ -10,6 +10,7 @@ I will attempt to use poetry to manage the [pyproject.toml](pyproject.toml) file
 
 ```sh
 pip3 install poetry
+export POETRY_VIRTUALENVS_PATH=.venv
 poetry init
 ```
 

@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "pyproject"
-    ]
+    ],
+    "python.analysis.extraPaths": ["${workspaceFolder}/.venv"]
 }
