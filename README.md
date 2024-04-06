@@ -24,3 +24,6 @@ To do:
 
 This is the most confusing aspect of structuring a python project to me. I still haven't figured out the optimal way to configure the environment so that everything works, including my IDE. 
 
+### Visual Studio Code environment
+
+I'm checking in my .vscode files to keep track of what needs to be done to configure it to my liking. 
