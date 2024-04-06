@@ -12,6 +12,8 @@ python = "^3.12"
 [tool.poetry.group.dev.dependencies]
 poetry = "^1.8.2"
 pylance = "^0.10.9"
+flake8 = "^7.0.0"
+pytest = "^8.1.1"
 
 
 [tool.poetry.group.test.dependencies]
