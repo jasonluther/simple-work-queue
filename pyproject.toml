@@ -9,6 +9,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 
+[[tool.poetry.packages]]
+include = "simple_work_queue"
+from = "src"
+
 [tool.poetry.group.dev.dependencies]
 poetry = "^1.8.2"
 pylance = "^0.10.9"
