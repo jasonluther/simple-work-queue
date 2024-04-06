@@ -4,7 +4,7 @@ Simple test to get test infrastructure up and running. Just import the module.
 
 import unittest
 import sys
-import tests
+import tests # I don't know why this is needed to make tests run in vscode.
 import simple_work_queue
 
 
