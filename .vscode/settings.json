@@ -2,5 +2,16 @@
     "cSpell.words": [
         "pyproject"
     ],
-    "python.analysis.extraPaths": ["${workspaceFolder}/.venv"]
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/.venv"
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./tests",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true
 }
