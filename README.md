@@ -13,9 +13,12 @@ pip3 install poetry
 poetry init
 ```
 
-
-
 Unit tests are in [tests](./tests). 
+
+To do:
+
+  * add [classifiers](https://python-poetry.org/docs/pyproject/#classifiers). 
+
 
 ### Using a `src` directory
 
