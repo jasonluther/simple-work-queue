@@ -26,6 +26,15 @@ Unit tests are in [tests](./tests).
 poetry add pytest --group test
 ```
 
+Add this to `keybindings.json` in vscode's `Preferences: Open Keyboard Shortcuts (JSON)` command in order to run tests with a hotkey of your choosing. In this case, I chose F10. 
+```json
+[
+    {
+        "key": "f10",
+        "command": "testing.runAll"
+    }
+]
+```
 
 ### Using a `src` directory
 
