@@ -43,6 +43,16 @@ This is the most confusing aspect of structuring a python project to me. I still
 
 <https://www.youtube.com/watch?v=WTofttoD2xg> had some helpful tips. 
 
+### Deployment workflow
+
+These are the steps in the deployment workflow that will be automated with GitHub actions. 
+
+The main branch will be protected. It will require a repo owner to approve a pull request to merge with master. 
+
+Each push should trigger a build and test run. The build will be stored as an actions artifact that can be used for testing. 
+
+Tagging a release version will generate a release. The release will trigger an upload to pypi. 
+
 ### Visual Studio Code environment
 
 I'm checking in my .vscode files to keep track of what needs to be done to configure it to my liking. 
