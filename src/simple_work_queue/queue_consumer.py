@@ -3,7 +3,6 @@
 from typing import Protocol
 import os
 from time import sleep
-from concurrent.futures import TimeoutError
 
 
 class QueueConsumer(Protocol):
