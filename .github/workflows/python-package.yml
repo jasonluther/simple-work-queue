@@ -6,11 +6,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        python-version: ["3.9", "3.12"]
-
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/workflows/reusable_test_workflow.yml@main
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run local action
+        uses: ./.github/workflows/reusable_test_workflow.yml@main
