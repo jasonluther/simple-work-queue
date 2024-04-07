@@ -57,10 +57,10 @@ jobs:
       run: |
         PKG_VERSION=$(poetry version --short)
         SHA=$(echo $GITHUB_SHA | cut -c1-7)
-        POETRY_VERSION=${PKG_VERSION}.dev${SHA}
+        POETRY_VERSION=${PKG_VERSION}+dev${SHA}
         echo "Setting version to ${POETRY_VERSION}"
         echo "POETRY_VERSION=${POETRY_VERSION}" >> $GITHUB_ENV
-        PKG_NAME=$(poetry version | tr ' ' '-').dev${SHA}
+        PKG_NAME=$(poetry version | tr ' ' '-')-${SHA}
         echo "Setting package name to ${PKG_NAME}"
         echo "PKG_NAME=${PKG_NAME}" >> $GITHUB_ENV
     - name: Build package
