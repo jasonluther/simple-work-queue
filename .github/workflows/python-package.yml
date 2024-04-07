@@ -53,12 +53,14 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         python -m pip install poetry
+        POETRY_VERSION=$(poetry --version)
+        POETRY_VERSION=${POETRY_VERSION}dev${GITHUB_SHA}
         poetry build
     - name: Upload package
       if: success()
       uses: actions/upload-artifact@v4
       with:
-        name: dist
+        name: dist-${{ github.sha }}
         path: dist/*
 
 
