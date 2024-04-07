@@ -53,4 +53,4 @@ jobs:
       - name: Upload package
         uses: actions/download-artifact@v4
         with:
-          name: package
+          name: package-3.12
