@@ -67,6 +67,7 @@ jobs:
       if: success()
       run: |
         echo "POETRY_VERSION=${POETRY_VERSION}"
+        poetry version $POETRY_VERSION
         poetry build
     - name: Upload package
       if: success()
