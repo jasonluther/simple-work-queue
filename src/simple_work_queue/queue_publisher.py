@@ -1,5 +1,10 @@
 """
-QueuePublisher defines a protocol for publishing messages to a queue. It will have a single method, publish, that takes a message as an argument and returns a boolean value indicating whether the message was successfully published. The QueuePublisherSpoolDir and QueuePublisherPubSub classes will implement this protocol for publishing messages to a spool directory and a pub/sub queue, respectively.
+QueuePublisher defines a protocol for publishing messages to a queue. It
+will have a single method, publish, that takes a message as an argument
+and returns a boolean value indicating whether the message was
+successfully published. The QueuePublisherSpoolDir and
+QueuePublisherPubSub classes will implement this protocol for publishing
+messages to a spool directory and a pub/sub queue, respectively.
 """
 
 from typing import Protocol

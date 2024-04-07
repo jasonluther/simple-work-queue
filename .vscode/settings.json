@@ -18,6 +18,14 @@
     "terminal.integrated.env.osx": {
         "PYTHONPATH": "${workspaceFolder}/src"
     },
+    "[python]": {
+        "editor.rulers": [
+            72,
+            79
+        ],
+        "rewrap.doubleSentenceSpacing": false,
+        "rewrap.autoWrap.enabled": true,
+    },
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
 }
