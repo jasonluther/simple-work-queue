@@ -41,6 +41,8 @@ Add this to `keybindings.json` in vscode's `Preferences: Open Keyboard Shortcuts
 
 This is the most confusing aspect of structuring a python project to me. I still haven't figured out the optimal way to configure the environment so that everything works, including my IDE. 
 
+<https://www.youtube.com/watch?v=WTofttoD2xg> had some helpful tips. 
+
 ### Visual Studio Code environment
 
 I'm checking in my .vscode files to keep track of what needs to be done to configure it to my liking. 
