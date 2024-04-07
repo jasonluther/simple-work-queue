@@ -1,4 +1,4 @@
-name: Publish test Python package
+name: Publish prod Python package
 
 on:
   push:
