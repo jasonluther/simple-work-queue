@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "simple-work-queue"
-version = "0.1.1"
+version = "0.1.2"
 description = "Publish to and consume from work queues"
 authors = ["Jason Luther <jason@ixid.net>"]
 license = "MIT"
