@@ -10,4 +10,4 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Run local action
-        uses: ./.github/workflows/python-build-test-workflow.yaml@main
+        uses: ./.github/actions/python-build-test@main
