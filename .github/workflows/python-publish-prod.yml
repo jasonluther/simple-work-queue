@@ -2,6 +2,8 @@ name: Publish test Python package
 
 on:
   push:
+    tags:
+      - "v*"
 
 permissions:
   id-token: write
@@ -25,8 +27,6 @@ jobs:
       - name: Build package
         run: |
           poetry build
-      - name: Publish package to TestPyPI
+      - name: Publish package to PyPI
         if: success()
         uses: pypa/gh-action-pypi-publish@release/v1.8
-        with:
-          repository-url: https://test.pypi.org/legacy/

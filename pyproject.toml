@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "simple-work-queue"
-version = "0.1.2"
+version = "0.1.3"
 description = "Publish to and consume from work queues"
 authors = ["Jason Luther <jason@ixid.net>"]
 license = "MIT"
@@ -25,6 +25,14 @@ pytest = "^8.1.1"
 [tool.pytest.ini_options]
 pythonpath = [
   "src"
+]
+
+[project]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Development Status :: 4 - Beta"
 ]
 
 [build-system]
