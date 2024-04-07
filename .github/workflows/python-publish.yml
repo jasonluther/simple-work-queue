@@ -3,6 +3,10 @@ name: Publish test Python package
 on:
   push:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
 
   build:
