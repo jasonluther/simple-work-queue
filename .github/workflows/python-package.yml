@@ -55,7 +55,7 @@ jobs:
         python -m pip install poetry
     - name: Set version number
       run: |
-        PKG_VERSION=$(poetry --version)
+        PKG_VERSION=$(poetry version)
         SHA=$(echo $GITHUB_SHA | cut -c1-7)
         POETRY_VERSION=${PKG_VERSION}dev${SHA}
         echo "Setting version to ${POETRY_VERSION}"
