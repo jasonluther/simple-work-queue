@@ -64,7 +64,9 @@ jobs:
         echo "Setting package name to ${PKG_NAME}"
         echo "PKG_NAME=${PKG_NAME}" >> $GITHUB_ENV
     - name: Build package
+      if: success()
       run: |
+        echo "POETRY_VERSION=${POETRY_VERSION}"
         poetry build
     - name: Upload package
       if: success()
