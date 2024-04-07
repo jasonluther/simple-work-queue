@@ -6,9 +6,11 @@
             "type": "shell",
             "command": "act",
             "args": [
-                "--verbose",
-                "-P", "ubuntu-latest=catthehacker/ubuntu:act-latest",
-                "--container-architecture", "linux/amd64",
+                // "--verbose",
+                "-P",
+                "ubuntu-latest=catthehacker/ubuntu:act-latest",
+                "--container-architecture",
+                "linux/amd64",
                 "--reuse"
             ],
             "group": {
