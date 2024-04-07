@@ -49,7 +49,7 @@ These are the steps in the deployment workflow that will be automated with GitHu
 
 The main branch will be protected. It will require a repo owner to approve a pull request to merge with master. 
 
-Each push should trigger a build and test run. The build will be stored as an actions artifact that can be used for testing. 
+Each push should trigger a build and test run. The build will be stored as an actions artifact that can be used for testing. A push to main will upload to test pypi.
 
 Tagging a release version will generate a release. The release will trigger an upload to pypi. 
 
