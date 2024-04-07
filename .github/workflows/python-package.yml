@@ -38,7 +38,7 @@ jobs:
       run: |
         poetry build
     - name: Upload package
-      if: ${{ needs.test-and-build.result == 'success' }}
+      if: success()
       uses: actions/upload-artifact@v4
       with:
         name: package
