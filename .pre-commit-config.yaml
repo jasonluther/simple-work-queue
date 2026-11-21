@@ -27,4 +27,5 @@ repos:
     rev: b0d54e809d81cabf61d357cbe519a9b9263b17cb # frozen: v2.4.0
     hooks:
       - id: git-identity
+        fail_fast: true
       - id: session-trailer
