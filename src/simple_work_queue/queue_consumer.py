@@ -1,8 +1,10 @@
 """QueueConsumer defines a protocol for consuming messages from a queue."""
 
-from typing import Protocol
+from __future__ import annotations
+
 import os
 from time import sleep
+from typing import Protocol
 
 
 class QueueConsumer(Protocol):
@@ -10,7 +12,7 @@ class QueueConsumer(Protocol):
 
 
 class QueueConsumerSpoolDir(QueueConsumer):
-    def __init__(self, spool_dir: str, file_extension: str = None):
+    def __init__(self, spool_dir: str, file_extension: str | None = None):
         self.spool_dir = spool_dir
         self.file_extension = file_extension
 
@@ -18,7 +20,7 @@ class QueueConsumerSpoolDir(QueueConsumer):
         iterations = 0
         keep_going = True
         while keep_going:
-            files = list()
+            files = []
             if self.file_extension is not None:
                 files = [
                     filename
@@ -35,7 +37,7 @@ class QueueConsumerSpoolDir(QueueConsumer):
                     result = process_request_func(message)
                     if result:
                         os.remove(os.path.join(self.spool_dir, file))
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001 - a failing callback must not stop the loop
                     print(f"Error processing file {file}: {e}")
             else:
                 sleep(1)

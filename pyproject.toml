@@ -5,6 +5,14 @@ description = "Publish to and consume from work queues"
 authors = ["Jason Luther <jason@ixid.net>"]
 license = "MIT"
 readme = "README.md"
+# Under [tool.poetry], not a bare [project] table: Poetry 2 refuses a [project]
+# table without a name.
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Development Status :: 4 - Beta",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -15,25 +23,19 @@ from = "src"
 
 [tool.poetry.group.dev.dependencies]
 poetry = "^1.8.2"
-pylance = "^0.10.9"
 flake8 = "^7.0.0"
 pytest = "^8.1.1"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.1.1"
 
-[tool.pytest.ini_options]
-pythonpath = [
-  "src"
-]
+[tool.ruff]
+# The package supports Python 3.9 (tool.poetry.dependencies), so ruff must not
+# rewrite annotations to 3.10-only syntax such as `str | None`.
+target-version = "py39"
 
-[project]
-classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.12",
-    "Development Status :: 4 - Beta"
-]
+[tool.pytest.ini_options]
+pythonpath = ["src"]
 
 [build-system]
 requires = ["poetry-core"]
