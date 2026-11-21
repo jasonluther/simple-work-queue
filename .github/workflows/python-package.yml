@@ -3,7 +3,23 @@ name: Build Python package
 on:
   push:
 
+permissions:
+  contents: read
+
 jobs:
+  # The shared format and lint checks from .pre-commit-config.yaml (kilotronic/lint's bundle, workflow
+  # safety, pins). git-identity's hooks need a person's identity, so they are skipped here.
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: prek run --all-files
+        env:
+          SKIP: git-identity,commit-subject,session-trailer,secret-scan,secret-scan-push,data-leak-check,data-leak-check-commit-msg,data-leak-check-pre-push
+        run: pipx run prek==0.5.11 run --all-files --show-diff-on-failure
+
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -12,9 +28,11 @@ jobs:
         python-version: ["3.12", "3.x"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
@@ -40,9 +58,11 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: 3.x
       - name: Install dependencies
@@ -54,22 +74,22 @@ jobs:
       - name: Set version number
         run: |
           PKG_VERSION=$(poetry version --short)
-          SHA=$(echo $GITHUB_SHA | cut -c1-7)
+          SHA=$(echo "$GITHUB_SHA" | cut -c1-7)
           POETRY_VERSION=${PKG_VERSION}+dev${SHA}
           echo "Setting version to ${POETRY_VERSION}"
-          echo "POETRY_VERSION=${POETRY_VERSION}" >> $GITHUB_ENV
+          echo "POETRY_VERSION=${POETRY_VERSION}" >> "$GITHUB_ENV"
           PKG_NAME=$(poetry version | tr ' ' '-')-${SHA}
           echo "Setting package name to ${PKG_NAME}"
-          echo "PKG_NAME=${PKG_NAME}" >> $GITHUB_ENV
+          echo "PKG_NAME=${PKG_NAME}" >> "$GITHUB_ENV"
       - name: Build package
         if: success()
         run: |
           echo "POETRY_VERSION=${POETRY_VERSION}"
-          poetry version $POETRY_VERSION
+          poetry version "$POETRY_VERSION"
           poetry build
       - name: Upload package
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ${{ env.PKG_NAME }}
           path: dist/*

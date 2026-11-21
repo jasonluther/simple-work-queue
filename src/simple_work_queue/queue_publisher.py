@@ -7,9 +7,11 @@ QueuePublisherPubSub classes will implement this protocol for publishing
 messages to a spool directory and a pub/sub queue, respectively.
 """
 
-from typing import Protocol
+from __future__ import annotations
+
 import os
 import uuid
+from typing import Protocol
 
 
 class QueuePublisher(Protocol):
@@ -17,7 +19,7 @@ class QueuePublisher(Protocol):
 
 
 class QueuePublisherSpoolDir(QueuePublisher):
-    def __init__(self, spool_dir: str, file_extension: str = None):
+    def __init__(self, spool_dir: str, file_extension: str | None = None):
         self.spool_dir = spool_dir
         self.file_extension = file_extension
 
@@ -31,6 +33,6 @@ class QueuePublisherSpoolDir(QueuePublisher):
             ) as f:
                 f.write(message)
             return True
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 - publish reports any failure as False
             print(f"Error publishing message: {e}")
             return False

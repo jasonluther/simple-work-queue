@@ -1,10 +1,11 @@
-from time import sleep
-from simple_work_queue.queue_consumer import QueueConsumerSpoolDir
-from simple_work_queue.queue_publisher import QueuePublisherSpoolDir
 import json
 import os
 import tempfile
 import unittest
+from time import sleep
+
+from simple_work_queue.queue_consumer import QueueConsumerSpoolDir
+from simple_work_queue.queue_publisher import QueuePublisherSpoolDir
 
 
 class TestSpoolQueue(unittest.TestCase):
