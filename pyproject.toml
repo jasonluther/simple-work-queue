@@ -5,6 +5,14 @@ description = "Publish to and consume from work queues"
 authors = ["Jason Luther <jason@ixid.net>"]
 license = "MIT"
 readme = "README.md"
+# Under [tool.poetry], not a bare [project] table: Poetry 2 refuses a [project]
+# table without a name.
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Development Status :: 4 - Beta",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -29,14 +37,6 @@ target-version = "py39"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
-
-[project]
-classifiers = [
-  "License :: OSI Approved :: MIT License",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.12",
-  "Development Status :: 4 - Beta",
-]
 
 [build-system]
 requires = ["poetry-core"]
